@@ -1,8 +1,49 @@
-# Setze SPR als Index-Datei
+# SPR - Simple PHP Redirect
+
+# Set SPR as primary index file
 DirectoryIndex spr-simple-php-redirect.php index.php index.html
 
-# Oder erzwinge SPR für alle Requests
+# Enable rewrite engine
 RewriteEngine On
-# Auch wenn index.php existiert, leite zu SPR
+
+# Force all requests to SPR (even if index.php exists)
 RewriteCond %{REQUEST_URI} !spr-simple-php-redirect\.php
 RewriteRule ^(.*)$ spr-simple-php-redirect.php [L,QSA]
+
+# Protect SPR configuration file
+<Files "spr-simple-redirect-config.json">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Protect SPR documentation
+<Files "spr-simple-php-redirect-README.txt">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</Files>
+
+# Block access to SPR logs directory
+<IfModule mod_rewrite.c>
+    RewriteRule ^spr-logs/.*$ - [F,L]
+</IfModule>
+
+# Additional protection for log files
+<FilesMatch "^.*spr-log\.json$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
