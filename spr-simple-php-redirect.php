@@ -1,6 +1,6 @@
 <?php
 // Load configuration
-$configFile = __DIR__ . '/spr-simple-redirect-config.json';
+$configFile = __DIR__ . '/spr-simple-php-redirect-config.json';
 if (!file_exists($configFile)) {
     http_response_code(500);
     die('Configuration file not found');
