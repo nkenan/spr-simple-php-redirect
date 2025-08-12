@@ -30,7 +30,7 @@ HOW TO COMPLETELY REMOVE SPR
 ----------------------------
 1. Delete or backup these files:
    - spr-simple-php-redirect.php
-   - spr-simple-redirect-config.json
+   - spr-simple-php-redirect-config.json
    - spr-simple-php-redirect-README.txt (this file)
    
 2. Remove SPR rules from .htaccess:
@@ -46,7 +46,7 @@ IDENTIFYING SPR FILES
 --------------------
 All SPR files use the prefix "spr-" for easy identification:
 - spr-simple-php-redirect.php (main script)
-- spr-simple-redirect-config.json (configuration)
+- spr-simple-php-redirect-config.json (configuration)
 - spr-simple-php-redirect-README.txt (documentation)
 - spr-logs/ (log directory)
 - YYYYMMDD-spr-log.json (daily log files)
@@ -54,7 +54,7 @@ All SPR files use the prefix "spr-" for easy identification:
 CHECKING CURRENT CONFIGURATION
 ------------------------------
 View where traffic is being redirected:
-    cat spr-simple-redirect-config.json
+    cat spr-simple-php-redirect-config.json
 
 Example output:
 {
@@ -76,12 +76,12 @@ INTEGRATION GUIDE
 1. Copy all SPR files to your web root or subdirectory
 2. The SPR-prefixed naming convention prevents conflicts with existing files
 3. Modify .htaccess rules as needed for your specific setup
-4. Configure spr-simple-redirect-config.json with your redirect target
+4. Configure spr-simple-php-redirect-config.json with your redirect target
 
 TECHNICAL DETAILS
 -----------------
 - Main Script: spr-simple-php-redirect.php
-- Config File: spr-simple-redirect-config.json
+- Config File: spr-simple-php-redirect-config.json
 - Log Directory: spr-logs/
 - Log Format: YYYYMMDD-spr-log.json
 
