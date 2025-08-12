@@ -9,6 +9,7 @@ A lightweight, GDPR-compliant PHP application that logs and redirects incoming r
 - ⚡ **Zero Dependencies**: Pure PHP implementation
 - 🛠️ **Simple Configuration**: JSON-based configuration file
 - 🔒 **Secure**: Prevents direct access to configuration and log files
+- 🔧 **Integration-Friendly**: Can be added to existing websites without conflicts
 
 ## Requirements
 
@@ -19,13 +20,13 @@ A lightweight, GDPR-compliant PHP application that logs and redirects incoming r
 ## Installation
 
 1. Clone or download this repository
-2. Upload all files to your web server
-3. Edit `config.json` to set your redirect destination
+2. Upload all files to your web server (can be integrated into existing websites)
+3. Edit `spr-simple-redirect-config.json` to set your redirect destination
 4. Ensure the web server can write to the directory (for creating logs)
 
 ## Configuration
 
-Edit the `config.json` file to customize the redirect behavior:
+Edit the `spr-simple-redirect-config.json` file to customize the redirect behavior:
 
 ```json
 {
@@ -55,7 +56,7 @@ Edit the `config.json` file to customize the redirect behavior:
 
 ## Logging
 
-The application creates daily log files in the `logs/` directory with the format `YYYYMMDD-log.json`.
+The application creates daily log files in the `spr-logs/` directory with the format `YYYYMMDD-spr-log.json`.
 
 ### Log Entry Structure
 
@@ -89,18 +90,19 @@ The logger only stores:
 
 ```
 /
-├── .htaccess          # Apache configuration
-├── index.php          # Main application logic
-├── config.json        # Configuration file
-├── README.md          # This file
-└── logs/              # Log files directory (auto-created)
-    └── YYYYMMDD-log.json
+├── .htaccess                        # Apache configuration
+├── spr-simple-php-redirect.php      # Main application logic
+├── spr-simple-redirect-config.json  # Configuration file
+├── spr-simple-php-redirect-README.txt # Developer documentation
+├── README.md                        # This file
+└── spr-logs/                        # Log files directory (auto-created)
+    └── YYYYMMDD-spr-log.json
 ```
 
 ## Security
 
 - The `.htaccess` file prevents direct access to JSON files
-- All requests are routed through `index.php`
+- All requests are routed through `spr-simple-php-redirect.php`
 - No user input is directly executed or included
 
 ## Troubleshooting
@@ -114,7 +116,7 @@ The logger only stores:
 - Check PHP error logs for permission issues
 
 ### 500 Internal Server Error
-- Ensure `config.json` exists and contains valid JSON
+- Ensure `spr-simple-redirect-config.json` exists and contains valid JSON
 - Check PHP error logs for syntax errors
 
 ## License
