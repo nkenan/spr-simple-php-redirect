@@ -1,0 +1,5 @@
+{
+    "redirectDomain": "https://example.com",
+    "dontIncludePaths": false,
+    "permanentRedirect": false
+}
