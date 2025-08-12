@@ -6,7 +6,19 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ spr-simple-php-redirect.php [L,QSA]
 
 # Prevent access to SPR config and log files
-<FilesMatch "^spr-.*\.(json|txt)$">
+<FilesMatch "spr-simple-php-redirect-config\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to log files
+<FilesMatch "spr-log\.json$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
+# Prevent access to SPR README
+<FilesMatch "spr-simple-php-redirect-README\.txt$">
     Order Allow,Deny
     Deny from all
 </FilesMatch>
