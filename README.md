@@ -21,12 +21,12 @@ A lightweight, GDPR-compliant PHP application that logs and redirects incoming r
 
 1. Clone or download this repository
 2. Upload all files to your web server (can be integrated into existing websites)
-3. Edit `spr-simple-redirect-config.json` to set your redirect destination
+3. Edit `spr-simple-php-redirect-config.json` to set your redirect destination
 4. Ensure the web server can write to the directory (for creating logs)
 
 ## Configuration
 
-Edit the `spr-simple-redirect-config.json` file to customize the redirect behavior:
+Edit the `spr-simple-php-redirect-config.json` file to customize the redirect behavior:
 
 ```json
 {
@@ -92,7 +92,7 @@ The logger only stores:
 /
 ├── .htaccess                        # Apache configuration
 ├── spr-simple-php-redirect.php      # Main application logic
-├── spr-simple-redirect-config.json  # Configuration file
+├── spr-simple-php-redirect-config.json  # Configuration file
 ├── spr-simple-php-redirect-README.txt # Developer documentation
 ├── README.md                        # This file
 └── spr-logs/                        # Log files directory (auto-created)
@@ -116,7 +116,7 @@ The logger only stores:
 - Check PHP error logs for permission issues
 
 ### 500 Internal Server Error
-- Ensure `spr-simple-redirect-config.json` exists and contains valid JSON
+- Ensure `spr-simple-php-redirect-config.json` exists and contains valid JSON
 - Check PHP error logs for syntax errors
 
 ## License
