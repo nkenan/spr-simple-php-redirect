@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# Redirect all requests to spr-simple-php-redirect.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ spr-simple-php-redirect.php [L,QSA]
+
+# Prevent access to SPR config and log files
+<FilesMatch "^spr-.*\.(json|txt)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
